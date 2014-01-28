@@ -15,7 +15,7 @@ import org.glassfish.tyrus.client.ClientManager;
 
 public class DocClient {
     private static CountDownLatch messageLatch;
-    private static final String SENT_MESSAGE = "Mandando mensagem";
+    private static final String SENT_MESSAGE = "Mandando mensagem Client";
 
     public static void main(String [] args){
         try {
@@ -52,6 +52,7 @@ public class DocClient {
                 }
             }, cec, new URI("ws://localhost:8025/websocket/teste"));
             messageLatch.await(100, TimeUnit.SECONDS);
+            Thread.sleep(100000);
         } catch (Exception e) {
             e.printStackTrace();
         }
